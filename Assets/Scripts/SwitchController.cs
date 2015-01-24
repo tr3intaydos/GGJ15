@@ -8,7 +8,7 @@ public class SwitchController : MonoBehaviour {
 	private GameObject[] gos;
 
 	void Start(){
-		gos = GameObject.FindGameObjectsWithTag ("Plataforms");
+		gos = GameObject.FindGameObjectsWithTag ("Platforms");
 	}
 
 	void ExecAction(){

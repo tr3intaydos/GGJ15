@@ -19,24 +19,22 @@ public class CharacterMovement : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		if (grounded) {
+		Vector3 rotation = new Vector3(0,Input.GetAxis("Horizontal"),0);
+		rotation *= rotationSpeed;
+		transform.Rotate(rotation);
 
-			Vector3 rotation = new Vector3(0,Input.GetAxis("Horizontal"),0);
-			rotation *= rotationSpeed;
-			transform.Rotate(rotation);
-
-			Vector3 targetVelocity = new Vector3(0, 0, Input.GetAxis("Vertical"));
-			//targetVelocity = cam.transform.TransformDirection(targetVelocity);
-			targetVelocity = transform.TransformDirection(targetVelocity);
-			targetVelocity *= speed;
-			var v = rigidbody.velocity;
-			var velocityChange = (targetVelocity-v);
-			velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-			velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-			velocityChange.y = 0;
-			
-			rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
-		}
+		Vector3 targetVelocity = new Vector3(0, 0, Input.GetAxis("Vertical"));
+		//targetVelocity = cam.transform.TransformDirection(targetVelocity);
+		targetVelocity = transform.TransformDirection(targetVelocity);
+		targetVelocity *= speed;
+		var v = rigidbody.velocity;
+		var velocityChange = (targetVelocity-v);
+		velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+		velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+		velocityChange.y = 0;
+		
+		rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
+	
 		if(Input.GetButtonDown("Jump") && grounded){
 			rigidbody.AddForce(transform.up*jumpHeight);
 			if(canSecondJump){
@@ -59,4 +57,16 @@ public class CharacterMovement : MonoBehaviour {
 			grounded=true;
 		}
 	}
+	void OnTriggerEnter(Collider other){
+		if(other.gameObject.tag == "Platforms"){
+			Debug.Log (other);
+			transform.parent = other.transform;
+		}
+	}
+	void OnTriggerExit(Collider other){
+		if(other.gameObject.tag == "Platforms"){
+			Debug.Log (other);
+			transform.parent = null;
+		}
+	} 
 }
