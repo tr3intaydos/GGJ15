@@ -9,13 +9,16 @@ public class CharacterMovement : MonoBehaviour {
 	public bool grounded;
 	public GameObject cam;
 
+	void Start(){
+		if(cam == null)
+			cam = Camera.main.gameObject;
+	}
 	
 	void FixedUpdate () {
-		if (grounded) {
+		//if (grounded) {
 
 			Vector3 rotation = new Vector3(0,Input.GetAxis("Horizontal"),0);
 			rotation *= rotationSpeed;
-
 			transform.Rotate(rotation);
 
 			Vector3 targetVelocity = new Vector3(0, 0, Input.GetAxis("Vertical"));
@@ -29,7 +32,7 @@ public class CharacterMovement : MonoBehaviour {
 			velocityChange.y = 0;
 			
 			rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
-		}
+		//}
 		if(Input.GetButtonDown("Jump") && grounded){
 			rigidbody.AddForce(transform.up*jumpHeight);
 			grounded=false;
