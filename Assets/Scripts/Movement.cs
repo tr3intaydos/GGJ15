@@ -24,8 +24,8 @@ public class Movement : MonoBehaviour {
 		}
 		if(Input.GetButtonDown("Jump") && grounded){
 			rigidbody.AddForce(transform.up*jumpHeight);
+			grounded=false;
 		}
-		grounded=false;
 	}
 	
 	void OnCollisionStay(Collision collision) {

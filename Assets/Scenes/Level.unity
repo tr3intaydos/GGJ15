@@ -105,10 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb3e58870708784295f1c99fc391d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
-  jumpHeight: 50
-  maxVelocityChange: 50
-  grounded: 0
+  speed: 10
+  jumpHeight: 250
+  maxVelocityChange: 20
+  grounded: 1
   cam: {fileID: 2003087584}
 --- !u!54 &157622732
 Rigidbody:
