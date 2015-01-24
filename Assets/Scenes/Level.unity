@@ -87,9 +87,11 @@ GameObject:
   - 23: {fileID: 157622733}
   - 54: {fileID: 157622732}
   - 114: {fileID: 157622731}
+  - 114: {fileID: 157622737}
+  - 114: {fileID: 157622738}
   m_Layer: 0
-  m_Name: Capsule
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +113,7 @@ MonoBehaviour:
   maxVelocityChange: 20
   grounded: 1
   cam: {fileID: 2003087584}
+  canSecondJump: 0
 --- !u!54 &157622732
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -178,6 +181,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &157622737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 157622730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df34dd01456fb4d49a7e71629a86921e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeForRestart: 5
+--- !u!114 &157622738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 157622730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da2c903fe50a6bb41be01c27f7fad094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &451430289
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +455,7 @@ GameObject:
   - 33: {fileID: 1560001828}
   - 65: {fileID: 1560001827}
   - 23: {fileID: 1560001826}
+  - 114: {fileID: 1560001830}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -487,6 +514,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 546218691}
   m_RootOrder: 0
+--- !u!114 &1560001830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1560001825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e4d9d6dbfbf8db4c802833e3fd190f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1590866158
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,3 +902,85 @@ MonoBehaviour:
   doZoom: 0
   zoomStep: 30
   zoomSpeed: 5
+--- !u!1 &2128499473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2128499478}
+  - 33: {fileID: 2128499477}
+  - 65: {fileID: 2128499476}
+  - 23: {fileID: 2128499475}
+  - 114: {fileID: 2128499474}
+  m_Layer: 0
+  m_Name: RocketPowerUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2128499474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128499473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8002c9a4b81289842897c4430a2aae58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PowerUpName: Rocket
+--- !u!23 &2128499475
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128499473}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &2128499476
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128499473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &2128499477
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128499473}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2128499478
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128499473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.45000005, z: -12.4399996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
